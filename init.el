@@ -18,6 +18,10 @@
       '(
         better-defaults
         solarized-theme
+
+        ;;language packages
+        js2-mode
+        
         ;;enable ido everywhere
         ido-ubiquitous
 
@@ -37,6 +41,12 @@
 
 (require 'better-defaults)
 (load-theme 'solarized-dark t)
+
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; Better imenu
+(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
 
 (setq inhibit-splash-screen t
       initial-scratch-message nil
