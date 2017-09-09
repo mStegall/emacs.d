@@ -8,7 +8,6 @@
 
 ; activate all the packages (in particular autoloads)
 (package-initialize)
-
 ; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
@@ -19,6 +18,9 @@
         better-defaults
         solarized-theme
 
+        ;; general tools
+        flycheck ;; linting
+        
         ;; javascript packages
         js2-mode ;; major mode
         js2-refactor ;; refactor support
@@ -65,6 +67,16 @@
 (add-hook 'js2-mode-hook (lambda ()
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
+;; smex
+
+(smex-initialize)
+;; keybindings
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; Clear Scratch and start in org mode
 (setq inhibit-splash-screen t
       initial-scratch-message nil
       initial-major-mode 'org-mode)
