@@ -18,6 +18,9 @@
         better-defaults
         solarized-theme
 
+        ;; project management
+        projectile
+        
         ;; general tools
         flycheck ;; linting
         
@@ -37,6 +40,11 @@
 
         ;;task manager
         org))
+
+;; configure projectile
+(projectile-mode)
+(setq projectile-indexing-method `alien)
+
 
 ; install the missing packages
 (dolist (package package-list)
@@ -67,6 +75,17 @@
 (add-hook 'js2-mode-hook (lambda ()
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
+(add-to-list 'load-path "~/.emacs.d/customization")
+
+(load "orgmode.el")
+
+;; set terminal to bash
+(setq explicit-shell-file-name "C:/Program Files/Git/bin/bash.exe")
+(setq shell-file-name "bash")
+(setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+(setenv "SHELL" shell-file-name)
+(add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+
 ;; smex
 
 (smex-initialize)
@@ -84,10 +103,14 @@
 ;; Show line numbers
 (global-linum-mode)
 
+;; Split vertical on widescreen
+(setq split-height-threshold nil)
+(setq split-width-threshold 160)
+
 ;; Set font settings
 (set-face-attribute `default nil
                     :family "Fira Code"
-                    :height 140)
+                    :height 130)
 
 
 (custom-set-variables
@@ -95,6 +118,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/notes/personal.org" "~/notes/test.org" "~/notes/notes.org")))
  '(package-selected-packages (quote (org better-defaults)))
  '(paradox-github-token t))
 (custom-set-faces
