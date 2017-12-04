@@ -1,0 +1,33 @@
+
+;; ----- smex-history -----
+(
+ edebug-defun
+ find-function
+ cider-jack-in
+ paradox-list-packages
+ shell
+ package-delete
+ package-install
+)
+
+;; ----- smex-data -----
+(
+ (paradox-list-packages . 4)
+ (customize-face . 1)
+ (comment-line . 2)
+ (projectile-mode . 1)
+ (shell . 3)
+ (eval-buffer . 7)
+ (cider-jack-in . 13)
+ (toggle-debug-on-error . 1)
+ (paredit-mode . 1)
+ (cider-refresh . 1)
+ (comment-region . 10)
+ (uncomment-region . 5)
+ (edebug-defun . 8)
+ (list-packages . 1)
+ (package-autoremove . 1)
+ (package-delete . 2)
+ (package-install . 1)
+ (find-function . 4)
+)
