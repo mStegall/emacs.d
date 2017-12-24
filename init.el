@@ -109,7 +109,7 @@
 (add-to-list 'load-path "~/.emacs.d/customization")
 
 (load "orgmode.el")
-(load "magit.el" )
+(load "magit-load.el" )
 
 ;; set terminal to bash
 ;; (setq explicit-shell-file-name "C:/Program Files/Git/bin/bash.exe")
@@ -121,6 +121,7 @@
 ;; smex
 
 (smex-initialize)
+(setq smex-save-file "~/.emacs.d/.smex-items")
 ;; keybindings
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
